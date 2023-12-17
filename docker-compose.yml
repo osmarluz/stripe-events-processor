@@ -1,0 +1,34 @@
+services:
+  app:
+    build: .
+    command: bash -c "bundle exec rails s -p ${SERVER_PORT} -b ${SERVER_BIND}"
+    entrypoint: ["sh", "entrypoint.sh"]
+    volumes:
+      - .:/app
+      - bundle:/usr/local/bundle
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+
+  postgres:
+    image: postgres
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    ports:
+      - "${DATABASE_PORT}:${DATABASE_PORT}"
+    env_file:
+      - .env
+
+volumes:
+  bundle:
+  postgres:
+
+networks:
+  default:
+    name: app_default

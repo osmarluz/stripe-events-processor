@@ -1,0 +1,11 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.2.2
+  TargetRailsVersion: 7.1
+
+Style/Documentation:
+  Enabled: false
