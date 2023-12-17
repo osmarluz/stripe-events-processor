@@ -12,7 +12,15 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
+  gem 'rubocop-rspec'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
