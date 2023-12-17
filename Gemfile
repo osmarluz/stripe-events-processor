@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 ruby '3.2.2'
 
+gem 'aasm', '~> 5.5'
 gem 'bootsnap', require: false
 gem 'pg', '~> 1.5', '>= 1.5.4'
 gem 'puma', '~> 6.4'
