@@ -48,11 +48,12 @@ describe 'POST /receive/stripe' do
         }
       }
     end
+    let(:signature) { generate_webhook_signature(payload.to_json) }
 
     it 'returns 200 status' do
       post webhooks_receive_path('stripe'),
            params: payload,
-           headers: { 'Stripe-Signature' => generate_webhook_signature(payload.to_json) },
+           headers: { 'Stripe-Signature' => signature },
            as: :json
 
       expect(response).to have_http_status(:ok)
@@ -61,7 +62,7 @@ describe 'POST /receive/stripe' do
     it 'creates the subscription' do
       post webhooks_receive_path('stripe'),
            params: payload,
-           headers: { 'Stripe-Signature' => generate_webhook_signature(payload.to_json) },
+           headers: { 'Stripe-Signature' => signature },
            as: :json
 
       expect(Subscription.sole).to have_attributes(
@@ -84,6 +85,7 @@ describe 'POST /receive/stripe' do
         }
       }
     end
+    let(:signature) { generate_webhook_signature(payload.to_json) }
 
     context 'when the subscription is paid' do
       let!(:subscription) do
@@ -93,7 +95,7 @@ describe 'POST /receive/stripe' do
       it 'returns 200 status' do
         post webhooks_receive_path('stripe'),
              params: payload,
-             headers: { 'Stripe-Signature' => generate_webhook_signature(payload.to_json) },
+             headers: { 'Stripe-Signature' => signature },
              as: :json
 
         expect(response).to have_http_status(:ok)
@@ -102,7 +104,7 @@ describe 'POST /receive/stripe' do
       it 'cancels the subscription' do
         post webhooks_receive_path('stripe'),
              params: payload,
-             headers: { 'Stripe-Signature' => generate_webhook_signature(payload.to_json) },
+             headers: { 'Stripe-Signature' => signature },
              as: :json
 
         expect(subscription.reload).to be_canceled
