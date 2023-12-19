@@ -46,6 +46,8 @@ We have the controller `WebhooksController` that processes all kinds of webhooks
 
 ## Test Environment Setup
 
+I've created unit tests and also a request test (`spec/requests/webhooks/stripe_spec.rb`) to test the whole integration.
+
 - In case you haven't already done that, build the containers
   - `docker-compose build`
 - Start the containers
