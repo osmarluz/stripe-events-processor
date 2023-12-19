@@ -7,7 +7,15 @@ FactoryBot.define do
     trait :stripe do
       external_id { "sub_#{Faker::Alphanumeric.alphanumeric(number: 24)}" }
       source { 'stripe' }
-      data { { 'id': external_id, 'object' => 'subscription' } }
+      data { { 'id' => external_id, 'object' => 'subscription' } }
+    end
+
+    trait :paid do
+      state { :paid }
+    end
+
+    trait :canceled do
+      state { :canceled }
     end
   end
 end

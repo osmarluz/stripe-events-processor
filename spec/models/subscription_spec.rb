@@ -20,11 +20,11 @@ describe Subscription do
     let(:subscription) { create(:subscription) }
 
     it 'starts in the pending state' do
-      expect(subscription).to have_state(:pending)
+      expect(subscription).to have_state(:unpaid)
     end
 
     it 'transitions from pending to paid when pay event is triggered' do
-      expect(subscription).to transition_from(:pending).to(:paid).on_event(:pay)
+      expect(subscription).to transition_from(:unpaid).to(:paid).on_event(:pay)
     end
 
     it 'transitions from paid to canceled when cancel event is triggered' do

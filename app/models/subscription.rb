@@ -9,12 +9,12 @@ class Subscription < ApplicationRecord
   enum source: { stripe: 'stripe' }
 
   aasm column: :state, timestamps: true do
-    state :pending, initial: true
+    state :unpaid, initial: true
     state :paid
     state :canceled
 
     event :pay do
-      transitions from: :pending, to: :paid
+      transitions from: :unpaid, to: :paid
     end
 
     event :cancel do
