@@ -9,5 +9,17 @@ AllCops:
   TargetRubyVersion: 3.2.2
   TargetRailsVersion: 7.1
 
+Metrics/MethodLength:
+  Max: 15
+
+RSpec/ExampleLength:
+  Max: 10
+
+RSpec/VerifiedDoubles:
+  Exclude:
+    - spec/webhooks/authorizators/stripe_spec.rb
+    - spec/webhooks/processors/stripe/*.rb
+    - spec/webhooks/processors/stripe_spec.rb
+
 Style/Documentation:
   Enabled: false
