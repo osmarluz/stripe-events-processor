@@ -17,9 +17,9 @@ RSpec/ExampleLength:
 
 RSpec/VerifiedDoubles:
   Exclude:
-    - spec/webhooks/authorizators/stripe_spec.rb
-    - spec/webhooks/processors/stripe/*.rb
-    - spec/webhooks/processors/stripe_spec.rb
+    - spec/services/webhooks/authorizators/stripe_spec.rb
+    - spec/services/webhooks/processors/stripe/*.rb
+    - spec/services/webhooks/processors/stripe_spec.rb
 
 Style/Documentation:
   Enabled: false

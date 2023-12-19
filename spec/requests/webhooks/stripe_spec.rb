@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require '/app/spec/support/stripe_helper.rb'
+require '/app/spec/support/stripe_helper'
 
 describe 'POST /receive/stripe' do
   include StripeHelper
