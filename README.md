@@ -25,13 +25,13 @@ The logic involved with processing the events is pretty simple, so I decided not
 
 ### Controller
 
-We have the controller `WebhooksController` that processes all kinds of webhooks using the retrievers mentioned above. The URL is `<HOST>/:integration`, so for Stripe we have `<HOST>/stripe`
+We have the controller `WebhooksController` that processes all kinds of webhooks using the retrievers mentioned above. The URL is `<HOST>/:integration`, so for Stripe we have `<HOST>/stripe`.
 
 ## General Information
 
-- Create a `.env` file on the project root and copy the contents of `.env.sample` to it
-- Place the provided `master.key` file on the `/config` folder
-- In case you wish to test the Stripe webhooks manually, you'll have to change the `stripe.webhook_secret` used on the `config/credentials.yml.enc`
+- ⚠️ Create a `.env` file on the project root and copy the contents of `.env.sample` to it. ⚠️
+- ⚠️ Place the provided `master.key` file on the `/config` folder. ⚠️
+- In case you wish to test the Stripe webhooks manually, you'll have to change the `stripe.webhook_secret` used on the `config/credentials.yml.enc`.
 
 ## Development Environment Setup
 
